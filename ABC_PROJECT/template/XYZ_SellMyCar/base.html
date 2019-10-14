@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load my_extras %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static "bootstrap-4.3.1-dist\css\bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "css_custom\mystyle.css" %}">
+    <script src="{% static "js\jquery-3.4.1.js" %}">
+    </script>
+  </head>
+  <body>
+    <div class="my-container">
+      <div class="my-img-cont">
+        <img src="{% static "images\sellcar.png" %}" class="img-fluid my-img" alt="Responsive image"\>
+      </div>
+      <div class="navbar-container">
+        <nav class="navbar navbar-light my-navbar-style">
+          <ul class="nav my-ul-1">
+            <li class="nav-item">
+              {% block nav_link_1 %}{% endblock %}
+            </li>
+            <li class="nav-item">
+              {% block nav_link_2 %}{% endblock %}
+            </li>
+            <li class="nav-item">
+              {% block nav_link_3 %}{% endblock %}
+            </li>
+            <li class="nav-item">
+              {% block nav_link_4 %}{% endblock %}
+            </li>
+            <li class="nav-item">
+              {% block nav_link_5 %}{% endblock %}
+            </li>
+          </ul>
+          <span class="navbar-text">
+            Welcome to Sell My Car!
+          </span>
+        </nav>
+
+      </div>
+
+    </div>
+
+    {% block body_block %}
+      <!-- ANYTHING OUTSIDE OF THIS BLOCK WILL BE INHERITED IF IT'S EXTENDED -->
+      <!-- THIS "block body_block" IS USED FOR DIFFERENT HTML TAGGING FOR OTHER PAGES -->
+    {% endblock %}
+
+    <script src="{% static "js\myscript.js" %}">
+
+    </script>
+  </body>
+</html>

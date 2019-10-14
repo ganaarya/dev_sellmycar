@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<!-- THIS "extends" TAG IS USED TO INHERIT THE HTML TAG FROM "base.html" PAGES -->
+<!-- ,SO WE DONT HAVE TO WRITE THE SAME HTML TAGS THAT ARE REPEATED IN OTHER PAGES -->
+{% extends "XYZ_SellMyCar/base.html" %}
+  <!-- THIS "block nav_link_1" BLOCK IS REFFERED TO "block nav_link_1" IN base.html PAGES -->
+  <!-- WE CAN CREATE CUSTOM LINK WITH THIS BLOCK WITH DIFFERENT STYLING -->
+  {% block nav_link_1 %}<a class="nav-link active custom-navbar other-btn" href="{% url 'SellMyCar:home_page' %}">Home</a>{% endblock %}
+  {% block nav_link_2 %}<a class="nav-link active custom-navbar current-page-btn" href="{% url 'SellMyCar:car_register_page' %}">Register</a>{% endblock %}
+  {% block nav_link_3 %}<a class="nav-link active custom-navbar other-btn" href="{% url 'SellMyCar:gallery_page' %}">Gallery</a>{% endblock %}
+  {% block nav_link_4 %}<a class="nav-link active custom-navbar other-btn" href="{% url 'SellMyCar:about_page' %}">About</a>{% endblock %}
+  {% block nav_link_5 %}<a class="nav-link active custom-navbar other-btn" href="{% url 'admin:index' %}">Admin</a>{% endblock %}
+
+  {% block body_block %}
+    <div class="container">
+      <div class="jumbotron">
+        <form class="custom-form-style-1" method="POST">
+        {{register_car_form.as_p}}
+        {% csrf_token %}
+        <input type="submit" class="btn btn-primary my-btn" value="Submit">
+        </form>
+      </div>
+    </div>
+    {% endblock %}
